@@ -1,14 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Serial Port Example</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heartbeat Visualization</title>
+    <link rel="icon" href="./public/heartbeat.png" type="image/png" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        background-color: #212529;
+        color: #fff;
+      }
+      #serialData {
+        height: 200px;
+        overflow-y: auto;
+      }
+    </style>
   </head>
   <body>
-    <button onclick="connectToSerial()">Connect</button>
-    <button onclick="disconnectFromSerial()">Disconnect</button>
-    <br />
-    <textarea id="serialData" rows="10" cols="50" readonly></textarea>
+    <div class="container py-5">
+      <div class="text-center mb-4">
+        <button class="btn btn-primary btn-sm me-2" onclick="connectToSerial()">
+          Connect
+        </button>
+        <button class="btn btn-danger btn-sm" onclick="disconnectFromSerial()">
+          Disconnect
+        </button>
+      </div>
+      <div class="text-center">
+        <textarea
+          id="serialData"
+          class="form-control"
+          rows="10"
+          cols="50"
+          readonly
+        ></textarea>
+      </div>
+    </div>
+
+    <script>
+      // Function to append content to the serial data textarea and scroll to the bottom
+      function appendContent(content) {
+        const textarea = document.getElementById("serialData");
+        textarea.value += content + "\n";
+        textarea.scrollTop = textarea.scrollHeight;
+      }
+    </script>
 
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>
   </body>
 </html>
