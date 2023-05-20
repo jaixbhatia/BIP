@@ -19,9 +19,30 @@
         background-color: #212529;
         color: #fff;
       }
+      button {
+        padding-bottom: 20px;
+      }
       #serialData {
         height: 200px;
         overflow-y: scroll;
+      }
+      .circle {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border: 2px solid #000;
+        position: relative;
+        overflow: hidden;
+        margin: 0 auto;
+      }
+
+      .fill {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #00ff00;
+        transition: height 0.5s ease;
       }
     </style>
   </head>
@@ -37,6 +58,10 @@
         </button>
       </div>
 
+      <div class="circle">
+        <div class="fill" id="fill"></div>
+      </div>
+      <hr />
       <div id="serialDataContainer" class="text-center"></div>
       <canvas id="realTimeChart"></canvas>
 

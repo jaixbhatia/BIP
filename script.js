@@ -2,12 +2,19 @@ let port;
 const serialDataElement = document.getElementById("serialData");
 const serialDataElement2 = document.getElementById("serialDataContainer");
 
+function updateFillHeight(value) {
+  var fillElement = document.getElementById("fill");
+  var heightPercentage = (value / 1000) * 100; // Assuming 1000 as the maximum value
+  fillElement.style.height = heightPercentage + "%";
+}
+
 // Create initial empty arrays for data and labels
 var data = [];
 var labels = [];
 
 // Initial starting value
 var initialValue = 1000;
+value = 1000;
 
 // Create a new chart
 var ctx = document.getElementById("realTimeChart").getContext("2d");
@@ -89,6 +96,7 @@ async function readFromSerialPort() {
             .filter((num) => num < 1000 && num >= 0);
           serialDataElement2.innerText = filteredNumbers.slice(-1);
           updateChart(filteredNumbers.slice(-1)[0]);
+          updateFillHeight(filteredNumbers.slice(-1)[0]);
         }
       }
     } catch (error) {

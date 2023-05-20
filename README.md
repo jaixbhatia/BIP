@@ -1,6 +1,6 @@
 # Introduction
 
-The current version (1.0) takes serial data from an ESP32 and outputs to a simple website. In future versions, the code will be better commented and the website will not only be responsive, but take in the data from the Adafruit sensor. This code should work on any code that uses Arduino. I am using a 2015 Macbook Pro on MacOS Monterey to run the following.
+The current version (1.1) takes serial data from an ESP32 and outputs data to a simple chart on a responsive website. This code should work on any code that uses Arduino. I am using a 2015 Macbook Pro on MacOS Monterey to run the following.
 
 ## Disclaimer
 
@@ -12,6 +12,9 @@ This code is using an API only available on Chrome.
 - Version 1.0
   - Tested old version of Serial library w/ node JS options. Library is broken.
   - Used Chrome's Web Serial API to build a browser-based serial output website.
+- Version 1.1
+  - Using Bootstrap to make the web application responsive.
+  - Using Chart.js and some JS hackery to allow reading of the Serial data + live plotting.
 
 ## Steps to Run
 
@@ -29,6 +32,6 @@ This code is using an API only available on Chrome.
   - Click the `Connect` button and select the port to your hardware device.
   - If all goes well, the information should show on the web site!
 
-## Version 1.0 Demo
+## Demo Videos
 
 ![Video Demo of Version 1.0](./Evidence/version1.0demo.gif)
