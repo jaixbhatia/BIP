@@ -16,5 +16,5 @@ void loop() {
   }
 
   Serial.println(initialHeartBeat); // Send the value over the serial port
-  delay(1000); // Wait for a second before sending the next value
+  delay(1500); // Wait for a second before sending the next value
 }

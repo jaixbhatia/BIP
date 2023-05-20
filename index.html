@@ -17,7 +17,7 @@
       }
       #serialData {
         height: 200px;
-        overflow-y: auto;
+        overflow-y: scroll;
       }
     </style>
   </head>
@@ -38,8 +38,10 @@
           rows="10"
           cols="50"
           readonly
+          oninput="scrollToBottom()"
         ></textarea>
       </div>
+      <div id="serialDataContainer" class="text-center"></div>
     </div>
 
     <script>
@@ -47,6 +49,12 @@
       function appendContent(content) {
         const textarea = document.getElementById("serialData");
         textarea.value += content + "\n";
+        scrollToBottom();
+      }
+
+      // Function to scroll to the bottom of the textarea
+      function scrollToBottom() {
+        const textarea = document.getElementById("serialData");
         textarea.scrollTop = textarea.scrollHeight;
       }
     </script>
