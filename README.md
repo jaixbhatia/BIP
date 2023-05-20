@@ -22,7 +22,7 @@ This code is using an API only available on Chrome.
   - If you are using an ESP32 on a Mac, the following apply to you:
     - Check that your Board Config looks like this:
       - ![Board Config](./Evidence/Board_Config.png)
-    - Check that your Arduino File looks like this: ![Arduino Config](./Evidence/Arduino_Config.png)
+    - Check that your Arduino File looks like this: ![Arduino Config](./Evidence/Arduino_Config_1.1.png)
   - Run the code on your ESP32 or other Arduino-compatible hardware.
 - I use visual studio code, so I prefer using something called `Live Server` to test my dynamic/static sites. I'd suggest using this in this case to test your code.
   - Installation information can be found [here.](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
@@ -37,7 +37,7 @@ This code is using an API only available on Chrome.
 
 ### Version 1.1
 
-![Video Demo of Version 1.1](./Evidence/version1.1.gif.gif)
+![Video Demo of Version 1.1](./Evidence/version1.1.gif)
 
 ### Version 1.0
 
