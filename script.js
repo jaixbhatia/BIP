@@ -2,10 +2,28 @@ let port;
 const serialDataElement = document.getElementById("serialData");
 const serialDataElement2 = document.getElementById("serialDataContainer");
 
+var emptyTimeout;
+var zeroCount = 0;
+
 function updateFillHeight(value) {
   var fillElement = document.getElementById("fill");
+  var circleElement = document.getElementById("circle");
   var heightPercentage = (value / 1000) * 100; // Assuming 1000 as the maximum value
   fillElement.style.height = heightPercentage + "%";
+
+  console.log("value " + value);
+
+  // Update the function to remove the class from the fill element
+  if (value === 0) {
+    circleElement.classList.add("circle-empty");
+    fillElement.classList.add("circle-empty");
+    fillElement.style.height = "100%";
+    // console.log("circle-empty class added");
+  } else {
+    circleElement.classList.remove("circle-empty");
+    fillElement.classList.remove("circle-empty");
+    // console.log("circle-empty class removed");
+  }
 }
 
 // Create initial empty arrays for data and labels
@@ -46,7 +64,7 @@ var chart = new Chart(ctx, {
 
 // Function to update the chart with new data
 function updateChart(newValue) {
-  console.log(newValue);
+  // console.log(newValue);
   // Add new data point to the arrays
   var timestamp = new Date().toLocaleTimeString();
   data.push(newValue);
