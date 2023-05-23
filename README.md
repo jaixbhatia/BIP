@@ -15,6 +15,9 @@ This code is using an API only available on Chrome.
 - Version 1.1
   - Using Bootstrap to make the web application responsive.
   - Using Chart.js and some JS hackery to allow reading of the Serial data + live plotting.
+- Version 1.11
+  - Added `config.js` to enable users to change global variables for use in the code!
+  - Added a lot more documentation to ensure the code is readable.
 
 ## Steps to Run
 
@@ -24,6 +27,8 @@ This code is using an API only available on Chrome.
       - ![Board Config](./Evidence/Board_Config.png)
     - Check that your Arduino File looks like this: ![Arduino Config](./Evidence/Arduino_Config_1.1.png)
   - Run the code on your ESP32 or other Arduino-compatible hardware.
+- Go to `config.js` and ensure that the Baud Rate and Initial Heartbeat Value are correct.
+  - If not, please change those.
 - I use visual studio code, so I prefer using something called `Live Server` to test my dynamic/static sites. I'd suggest using this in this case to test your code.
   - Installation information can be found [here.](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
   - After installation, go to the `index.html` file and click `Go Live` at the bottom of VS.

@@ -1,3 +1,5 @@
+<!-- This part of the code defines the metadata of the website!  -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,11 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Heartbeat Visualization</title>
     <link rel="icon" href="./public/heartbeat.png" type="image/png" />
+
+    <!-- Bootstrap is a tool used to make websites responsive (work on different screens/etc.). -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
     />
 
+    <!-- We define all the styles of our website here. This changes what's shown to users.  -->
     <style>
       h1 {
         padding-bottom: 10px;
@@ -26,6 +31,12 @@
         height: 200px;
         overflow-y: scroll;
       }
+
+      /* This is where you would define your shape if you wanted to change it. 
+      Right now, I've defined a circle using border-radius/width/height. */
+
+      /* Let's say you wanted to change shape. Rather than change everywhere in the code, you could 
+      just define the shape via CSS here (it would still be referenced as circle).  */
       .circle {
         width: 200px;
         height: 200px;
@@ -36,6 +47,10 @@
         margin: 0 auto;
       }
 
+      /* This part of the code handles the "filling" or rather, "unfilling" of the shape. 
+      This code indicates to fill the shape w/ a green background and its height element 
+      is changed in the CSS code in script.js.  */
+
       .fill {
         position: absolute;
         bottom: 0;
@@ -45,15 +60,21 @@
         transition: height 0.5s ease;
       }
 
+      /* When the value (BPM/etc.) hits zero, this CSS will fill the whole circle/shape red.  */
       #fill.circle-empty {
+        /* I use the important tag to make sure this displays. Not good coding practice, sorry. */
         background-color: #ff0000 !important;
       }
     </style>
   </head>
   <body>
+    <!-- All these divs essentially make the application "responsive" to various screen sizes. -->
     <div class="container py-5">
       <div class="text-center mb-4">
         <h1>Heartbeat Visualization</h1>
+
+        <!-- Define two buttons to allow connection / disconnection to Serial. 
+        We use Chrome Web Serial API (which contains the connectToSerial and disconnectFromSerial functions. -->
         <button class="btn btn-primary btn-sm me-2" onclick="connectToSerial()">
           Connect
         </button>
@@ -62,14 +83,22 @@
         </button>
       </div>
 
+      <!-- This is where we define the shape that will be filled/unfilled.  -->
       <div class="circle" id="circle">
         <div class="fill" id="fill"></div>
       </div>
       <hr />
+
+      <!-- This line of code essentially allows us to call global variables defined in config.js. -->
+      <div id="globalVars">...</div>
+      <!-- This line of code showcases the Serial Data (numbers) to the user.  -->
       <div id="serialDataContainer" class="text-center"></div>
+      <!-- This line of code will display the real-time chart.js data to the user (the chart). -->
       <canvas id="realTimeChart"></canvas>
 
       <hr />
+      <!-- This is the text box that is displaying everything that Web Serial is reading from Arduino.
+      In other words, this is replicating what Arduino's Serial Monitor would see and displays it.  -->
       <div class="text-center">
         <textarea
           id="serialData"
@@ -82,6 +111,15 @@
       </div>
     </div>
 
+    <!-- Defining our global variables, like Baud Rate and initial heartbeat value!  -->
+    <script src="config.js"></script>
+    <!-- This allows us to use chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- This is the main script that handles all the code related to reading the data / processing it!  -->
+    <script src="script.js"></script>
+
+    <!-- Techinically, I should've put this in script.js.
+    This will add the data from Serial as-is and display it to the user on-screen!  -->
     <script>
       // Function to append content to the serial data textarea and scroll to the bottom
       function appendContent(content) {
@@ -97,8 +135,7 @@
       }
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="script.js"></script>
+    <!-- Needed to run bootstrap.  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>
   </body>
 </html>
